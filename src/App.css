@@ -1,0 +1,249 @@
+/*Overall board*/
+
+.kanban-board {
+  padding: 20px;
+  background-color: #e5e8f0;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  position: relative; /* For absolute positioning within */
+  overflow: auto; /* Enables scrolling */
+  display: flex; /* Flex for horizontal alignment of groups */
+  gap: 20px; /* Space between the groups */
+  align-items: flex-start; /* Align all groups at the top */
+}
+
+
+/*Header line*/
+
+.header {
+  background-color: white; /* White background */
+  padding: 10px 0; /* Vertical padding */
+  box-shadow: none; /* No shadow */
+  display: flex; /* Flexbox for layout */
+  justify-content: space-between; /* Items spaced out */
+  align-items: center; /* Vertically center items */
+  width: 100%; /* Full width */
+  position: fixed; /* Fixed to top */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* On top of other content */
+}
+
+
+/*Display button*/
+
+.display-controls {
+  display: flex;
+  gap: 20px; /* Space between buttons */
+}
+
+/* Style for the Display button */
+.display-button {
+  padding: 10px 20px;
+  border: 1.3px solid #d3d3d3; /* Lighter grey border */
+  background-color: white;
+  cursor: pointer;
+  margin-left: 30px; /* Margin from left */
+  border-radius: 3px;
+  box-shadow: 0 6px 12px rgba(211, 211, 211, 0.5);
+  transition: border-color 0.4s;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  position: absolute;
+  background-color: white;
+  border: 1.4px solid rgb(211, 211, 211);
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgb(211, 211, 211);
+  padding: 10px;
+  width: 250px;
+  top: 120%;
+  left: 30px;
+  z-index: 1;
+}
+
+/* Label and select for grouping and ordering */
+.grouping,
+.ordering {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+
+.select-dropdown {
+  width: 100%;
+  margin-left: 50px;
+  padding: 8px;
+  border: 1px solid lightgray;
+  background-color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+/* Updated group layout */
+.grouped-container {
+  display: flex; /* Flexbox for horizontal group alignment */
+  gap: 50px; /* Space between the groups */
+  margin-top: 80px; /* Add margin to avoid overlap with header */
+  justify-content: center; /* Center the groups within the container */
+  width: 100%;
+}
+
+
+/* Group container for each status/user/priority */
+.group {
+  display: flex;
+  flex-direction: column; /* Ensure cards stack vertically */
+  width: 240px; /* Fixed width for uniform size */
+  border-radius: 8px;
+  padding: 20px 0;            /* Padding inside each group */
+}
+
+
+
+
+/*Cards container inside a group*/
+.cards-container {
+  display: flex;
+  flex-direction: column; /* Ensure cards are stacked vertically */
+  gap: 15px; /* Space between cards */
+  width: 250px; 
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.heading-container {
+  width: 220px;
+  display: flex;
+  padding: 10px;
+  width: fit-content;
+  box-sizing: border-box;
+}
+.ticket-cardheading {
+  display: flex;
+  margin: 0; /* No margin for heading */
+}
+
+.user-heading-box {
+  display: flex;
+  align-items: center;
+  padding: 5px; /* Optional: add some padding */
+  background-color: transparent; /* Optional: change background if needed */
+}
+
+.card-count {
+  
+  display: flex;
+  font-weight: 500px;
+  font-size:12px;
+  margin-left: 8px;
+  color: solid lightgray;
+}
+/*Single card styling*/
+
+.card {
+  width: 220px; /* Cards take full width of the group */
+  padding: 10px;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+
+/* Ticket ID styling */
+.ticket-id {
+  margin: 0 0 5px 0; /* Bottom margin for spacing */
+  color: gray;
+  font-weight: normal;
+  font-size: 13px;
+}
+
+
+/* Title and checkmark button */
+.title-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Tag styling */
+.ticket-tag {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-right: auto; /* Pushes the tag to the left */
+  background-color: white;
+  padding: 5px;
+  border: 0px solid lightgray;
+  border-radius: 4px;
+  box-shadow: 0 0px 1px rgba(0, 0, 0, 0.197);
+  font-size: 10px;
+  color: gray;
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  background-color: lightgrey;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+
+/* Checkmark button */
+.checkmark-button {
+  width: 20px;
+  height: 20px;
+  border: 2px solid lightgray;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkmark {
+  width: 20px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+
+/* Checked state styles */
+.checkmark-button.checked {
+  background-color: rgb(54, 124, 199); /* Blue background when checked */
+  border: 2px solid lightgray;
+}
+
+
+/* Ticket title styling */
+.ticket-title {
+  margin: 0;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.ticket-cardheading {
+  font-weight: 500;
+  font-size: 12px;
+ 
+  margin: 0; /* Remove default margin to avoid extra space */
+}
+
